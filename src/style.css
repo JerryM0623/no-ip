@@ -1,0 +1,348 @@
+:root {
+  --primary: #08f7fe;
+  --secondary: #fe53bb;
+  --accent: #09fbd3;
+  --bg-dark: #08080a;
+  --bg-light: #121218;
+  --text-light: #ffffff;
+  --text-gray: #a0a0a0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 2rem;
+  max-width: 800px;
+  width: 90%;
+  border-radius: 20px;
+  background: linear-gradient(
+    145deg,
+    rgba(18, 18, 24, 0.6),
+    rgba(8, 8, 10, 0.8)
+  );
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: pulse 6s infinite, float 10s infinite;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: -10px;
+  left: 0;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  transform-origin: center;
+  animation: lineGrow 3s ease-in-out infinite;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+}
+
+.highlight {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.btn {
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(254, 83, 187, 0.3);
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  opacity: 0.15;
+  filter: blur(60px);
+  animation: orbiting 20s linear infinite;
+}
+
+.circle:nth-child(1) {
+  width: 300px;
+  height: 300px;
+  top: -150px;
+  left: -150px;
+  animation-duration: 25s;
+}
+
+.circle:nth-child(2) {
+  width: 400px;
+  height: 400px;
+  top: calc(100% - 200px);
+  right: -200px;
+  animation-duration: 30s;
+  animation-direction: reverse;
+}
+
+.circle:nth-child(3) {
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 20%;
+  animation-duration: 20s;
+  background: linear-gradient(45deg, var(--accent), var(--primary));
+}
+
+.grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      rgba(8, 247, 254, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(8, 247, 254, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 2;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  animation: grid 15s linear infinite;
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  animation: twinkle 5s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(8, 247, 254, 0.5),
+      0 0 30px rgba(8, 247, 254, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(254, 83, 187, 0.5),
+      0 0 60px rgba(254, 83, 187, 0.2);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes orbiting {
+  0% {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+  }
+}
+
+@keyframes grid {
+  0% {
+    transform: rotateX(80deg) translateY(0);
+  }
+  100% {
+    transform: rotateX(80deg) translateY(50px);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes lineGrow {
+  0%,
+  100% {
+    transform: scaleX(0.5);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.icon {
+  margin-bottom: 1rem;
+  font-size: 4rem;
+  animation: floating 4s ease-in-out infinite;
+  color: var(--primary);
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .container {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  .icon {
+    font-size: 3rem;
+  }
+}
+
+/* Mini terminal effect */
+.terminal {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: monospace;
+  text-align: left;
+  margin: 1.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal::before {
+  content: "$ ";
+  color: var(--accent);
+}
+
+.terminal-text {
+  color: var(--text-light);
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid var(--accent);
+  animation: typing 3.5s steps(40, end) infinite,
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  0%,
+  90%,
+  100% {
+    width: 0;
+  }
+  30%,
+  60% {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--accent);
+  }
+}

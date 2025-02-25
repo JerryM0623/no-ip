@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
+
+    <!-- 网站信息 -->
+    <title>禁止IP访问</title>
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- HTML Meta Tags -->
+    <title>禁止IP访问</title>
+    <meta name="description" content="禁止IP访问, 效果展示页面, 展示前端技术的实验性作品，包含动画、交互动效等，提升视觉体验。" />
+
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="禁止IP访问" />
+    <meta itemprop="description" content="禁止IP访问, 效果展示页面, 展示前端技术的实验性作品，包含动画、交互动效等，提升视觉体验。" />
+    <meta itemprop="image" content="https://web-storage.zilu.work/no-ip-preview.png" />
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://claude37.zilu.work/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="禁止IP访问" />
+    <meta property="og:description" content="禁止IP访问, 效果展示页面, 展示前端技术的实验性作品，包含动画、交互动效等，提升视觉体验。" />
+    <meta property="og:image" content="https://web-storage.zilu.work/no-ip-preview.png" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="禁止IP访问" />
+    <meta name="twitter:description" content="禁止IP访问, 效果展示页面, 展示前端技术的实验性作品，包含动画、交互动效等，提升视觉体验。" />
+    <meta name="twitter:image" content="https://web-storage.zilu.work/no-ip-preview.png" />
+
+    <!-- Meta Tags Generated via https://heymeta.com -->
+  </head>
+  <body>
+    <div class="background">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="grid"></div>
+      <div class="stars" id="stars"></div>
+    </div>
+
+    <div class="container">
+      <div class="icon">⚠️</div>
+      <h1>请使用域名访问</h1>
+
+      <p>
+        您当前正在通过 IP 地址加端口的方式访问本站，
+        <span class="highlight">这种访问方式已被禁止</span>
+        。
+      </p>
+
+      <div class="terminal">
+        <span class="terminal-text">访问方式不正确，正在重定向...</span>
+      </div>
+
+      <p>
+        为了获得最佳的访问体验和完整的功能支持，请通过网站的
+        <span class="highlight">正式域名</span>
+        进行访问。
+      </p>
+
+      <p>如果您不知道正确的域名，请联系网站管理员获取帮助。</p>
+
+      <a href="#" class="btn" id="refresh-btn">返回主页</a>
+    </div>
+
+    <!-- 引入独立的 JS 文件 -->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
